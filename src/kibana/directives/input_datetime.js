@@ -10,7 +10,8 @@ define(function (require) {
       require: 'ngModel',
       link: function ($scope, $elem, attrs, ngModel) {
         
-        var format = 'YYYY-MM-DD HH:mm:ss.SSS';
+        // var format = 'YYYY-MM-DD HH:mm:ss.SSS';
+        var format = 'YYYY-MM-DD HH:mm';
 
         $elem.after('<div class="input-datetime-format">' + format + '</div>');
 
