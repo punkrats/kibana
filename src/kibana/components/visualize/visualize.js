@@ -30,6 +30,7 @@ define(function (require) {
 
         $scope.spyMode = false;
         $scope.fullScreenSpy = false;
+        $scope.appEmbedded = $scope.$root.appEmbedded;
 
         var applyClassNames = function () {
           var fullSpy = ($scope.spyMode && ($scope.spyMode.fill || $scope.fullScreenSpy));
