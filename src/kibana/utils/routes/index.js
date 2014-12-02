@@ -25,7 +25,7 @@ define(function (require) {
         otherwise = route;
         return this;
       },
-      config: function ($routeProvider) {
+      config: function ($routeProvider, $locationProvider) {
         when.forEach(function (args) {
           var path = args[0];
           var route = args[1] || {};
@@ -49,6 +49,8 @@ define(function (require) {
           wrapRouteWithPrep(otherwise);
           $routeProvider.otherwise(otherwise);
         }
+
+        $locationProvider.html5Mode(true);
       },
       RouteManager: RouteManager
     };
