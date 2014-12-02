@@ -44,6 +44,7 @@ define(function (require) {
 
   // setup routes
   routes
+    .html5(!!configFile.html5Mode)
     .otherwise({
       redirectTo: '/' + configFile.defaultAppId
     });

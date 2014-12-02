@@ -9,8 +9,13 @@ define(function (require) {
     var when = [];
     var additions = [];
     var otherwise;
+    var html5 = false;
 
     return {
+      html5: function (boolean) {
+        html5 = boolean;
+        return this;
+      },
       when: function (path, route) {
         when.push([path, route]);
         return this;
@@ -49,8 +54,7 @@ define(function (require) {
           wrapRouteWithPrep(otherwise);
           $routeProvider.otherwise(otherwise);
         }
-
-        $locationProvider.html5Mode(true);
+        $locationProvider.html5Mode(html5);
       },
       RouteManager: RouteManager
     };
