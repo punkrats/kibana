@@ -13,7 +13,7 @@ module.exports = function (grunt) {
               'text!config'
             ],
             include: [
-              'controllers/kibana'
+              // 'controllers/kibana'
             ]
           }
         ],
