@@ -4,11 +4,14 @@ define(function (require) {
   ]);
 
   var configFile = JSON.parse(require('text!config'));
-  configFile.elasticsearch = (
-    window.location.protocol + '//' +
-    window.location.hostname +
-    (window.location.port ? ':' + window.location.port : '') +
-    '/elasticsearch');
+  if (!configFile.elasticsearch) {
+    var host = window.location.protocol + '//' + window.location.hostname;
+    var path = configFile.elasticsearchPath || '/elasticsearch';
+    if (window.location.port) {
+      host += ':' + window.location.port;
+    }
+    configFile.elasticsearch = host + path;
+  }
 
   // allow the rest of the app to get the configFile easily
   module.constant('configFile', configFile);
