@@ -19,7 +19,7 @@ define(function (require) {
     from = datemath.parse(from).valueOf();
     to = datemath.parse(to, true).valueOf();
     rawInterval = ((to - from) / target);
-    var rounded = roundInterval(rawInterval);
+    var rounded = roundInterval(Math.max(rawInterval, 60000));
     if (!round) rounded.interval = rawInterval;
     return rounded;
   };
