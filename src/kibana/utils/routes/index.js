@@ -9,8 +9,13 @@ define(function (require) {
     var when = [];
     var defaults = [];
     var otherwise;
+    var html5 = false;
 
     return {
+      html5: function (boolean) {
+        html5 = boolean;
+        return this;
+      },
       when: function (path, route) {
         when.push([path, route]);
         return this;
@@ -25,7 +30,7 @@ define(function (require) {
         otherwise = route;
         return this;
       },
-      config: function ($routeProvider) {
+      config: function ($routeProvider, $locationProvider) {
         when.forEach(function (args) {
           var path = args[0];
           var route = args[1] || {};
@@ -49,6 +54,7 @@ define(function (require) {
           wrapRouteWithPrep(otherwise);
           $routeProvider.otherwise(otherwise);
         }
+        $locationProvider.html5Mode(html5);
       },
       RouteManager: RouteManager
     };

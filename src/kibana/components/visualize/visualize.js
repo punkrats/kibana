@@ -38,6 +38,7 @@ define(function (require) {
 
         $scope.spy = {mode: false};
         $scope.fullScreenSpy = false;
+        $scope.appEmbedded = $scope.$root.appEmbedded;
 
         var applyClassNames = function () {
           var $spyEl = getSpyEl();
