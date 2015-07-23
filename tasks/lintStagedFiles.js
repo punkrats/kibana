@@ -10,23 +10,23 @@ module.exports = function (grunt) {
     'Run staged files through JSHint/JSCS',
     function () {
 
-      diff('--name-only --cached')
-      .then(function (files) {
-        // match these patterns
-        var patterns = grunt.config.get('lintThese');
-        files = files.split('\n').filter(Boolean).map(function (file) {
-          return resolve(root, file);
-        });
+      // diff('--name-only --cached')
+      // .then(function (files) {
+      //   // match these patterns
+      //   var patterns = grunt.config.get('lintThese');
+      //   files = files.split('\n').filter(Boolean).map(function (file) {
+      //     return resolve(root, file);
+      //   });
 
-        files = grunt.file.match(patterns, files);
-        grunt.log.debug(files);
+      //   files = grunt.file.match(patterns, files);
+      //   grunt.log.debug(files);
 
-        grunt.config.set('jshint.staged.files.src', files);
-        grunt.config.set('jscs.staged.files.src', files);
+      //   grunt.config.set('jshint.staged.files.src', files);
+      //   grunt.config.set('jscs.staged.files.src', files);
 
-        grunt.task.run(['jshint:staged', 'jscs:staged']);
-      })
-      .nodeify(this.async());
+      //   grunt.task.run(['jshint:staged', 'jscs:staged']);
+      // })
+      // .nodeify(this.async());
 
     }
   );
