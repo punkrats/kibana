@@ -13,7 +13,7 @@ define(function (require) {
   var log = _.noop;
   if (typeof KIBANA_DIST === 'undefined') {
     log = function () {
-      console.log.apply(console, arguments);
+      // console.log.apply(console, arguments);
     };
   }
 
@@ -309,20 +309,20 @@ define(function (require) {
         }
       }
 
-      if (consoleGroups) {
-        if (status) {
-          console.log(status);
-          console.groupEnd();
-        } else {
-          if (opts.open) {
-            console.group(name);
-          } else {
-            console.groupCollapsed(name);
-          }
-        }
-      } else {
-        log('KBN: ' + name + (status ? ' - ' + status : ''));
-      }
+      // if (consoleGroups) {
+      //   if (status) {
+      //     console.log(status);
+      //     console.groupEnd();
+      //   } else {
+      //     if (opts.open) {
+      //       console.group(name);
+      //     } else {
+      //       console.groupCollapsed(name);
+      //     }
+      //   }
+      // } else {
+      //   log('KBN: ' + name + (status ? ' - ' + status : ''));
+      // }
 
       if (exec) {
         try {
