@@ -30,6 +30,13 @@ module.exports = function (grunt) {
       ]
     },
     dev_only_plugins: '<%= build %>/src/plugins/<%= devPlugins %>',
-    test_from_node_modules: '<%= build %>/dist/kibana/src/node_modules/**/*test*'
+    test_from_node_modules: '<%= build %>/dist/kibana/src/node_modules/**/*test*',
+    unneeded_css_in_src: {
+      src: [
+        '<%= src %>/kibana/styles/*.css',
+        '<%= src %>/kibana/components/**/*.css',
+        '<%= src %>/kibana/plugins/**/*.css'
+      ]
+    }
   };
 };
