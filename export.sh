@@ -1,7 +1,7 @@
 DEST=/Users/punkrats/code/vidibus/services/stats/public/kibana
 
 grunt export && rm -R $DEST
-cp -R build/kibana/public $DEST
+cp -R build/dist/kibana/src/public $DEST
 
 sed -i '' 's:\./:/kibana/:' $DEST/require.config.js
 
